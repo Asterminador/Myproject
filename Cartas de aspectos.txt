@@ -1,0 +1,32 @@
+vida
+intemperismo 1
+Queimada 2
+Desmatamento 3
+desertificação 4
+Poluição atmosferica
+Poluição do solo
+Poluição fluvial
+
+
+terra
+intemperismo 1
+Erosão 5
+Lixiviação 6 
+Desmatamento 3
+Desertificação 4
+Poluição do solo
+
+agua
+intemperismo 1
+Erosaão 5
+Eutrofização 7
+Chuva acida 8
+Enxente 9
+Desmatamento 3 
+Poluição fluvial
+
+ar
+intemperismo 1
+Queimada 2
+Desmatamento 3
+Poluição atmosferica 10
