@@ -1,0 +1,144 @@
+    header{
+        background: cadetblue;
+    }
+    h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        color: darkred;
+        text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+    }
+    h2{
+        font-family: Arial, Helvetica, sans-serif;
+        color: darkslategrey;
+    
+    }
+    h3{
+        font-family: Arial, Helvetica, sans-serif;
+        color: darkslategrey;
+        font-size: medium;
+    }
+    body{
+        background-color: rgba(239, 245, 245, 0.8);
+    }
+    
+    div#Barras{
+    display: block;
+    position: absolute;
+    width: 50px;
+    top: 20%;
+    left: 25%;
+}
+    .barra{
+        display: block;
+        position: absolute;
+        left: 60px;
+        box-shadow: 2px 2px 2px rgba(0,0,0,.6);
+        width: 0px;
+        height: 20px;
+    }
+    .barra:hover{
+        opacity: 0.5;
+    }
+
+    img#personagem{
+        display: block;
+        position: absolute;
+       left: 20%;
+       top: 60%;
+       height: 40%;
+       width: 15%;
+          
+    }
+    img#barra:hover{
+        opacity: 0.8;
+    }
+   
+   div#botao_iniciar{
+    
+    top: 20%;
+    left: 20%;
+   }
+   .text-box {
+    margin-left: 50%;
+	 margin-top: 15%;
+}
+    
+div#pontuacao{
+    display: block;
+    position: absolute;
+    top: 20%;
+    left: 71%;
+}
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: rgb(100, 100, 100);
+    color: rgb(255, 255, 255);
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: rgb(145, 145, 145);
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+div#selecao_elemento img{
+    box-shadow: 2px 2px 2px rgba(0,0,0,.6);
+    
+}
+div#selecao_elemento img:hover{
+    box-shadow: 4px 4px 4px rgba(0,0,0,.6);
+    /*opacity: 0.5;*/
+    
+}
+.seletor:active{
+    width: 30px;
+    height: 30px;
+}
+.seletor{
+    width: 20px;
+    height: 20px;
+}
+.icons{
+    
+    height: 40px;
+    width: 40px;
+}
+.cad, .barras_hp, .pontuacao, div#selecao_elemento{    
+    /*display: none;*/
+}
