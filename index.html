@@ -2,156 +2,29 @@
 <html>
 <head>
 <meta charset="utf-8">
-<style type="text/css">
-    h1 {
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
-        color: darkred;
-        text-shadow: 1px 1px 1px rgba(0,0,0,.6);
-    }
-    h2{
-        font-family: Arial, Helvetica, sans-serif;
-        color: darkslategrey;
-    
-    }
-    h3{
-        font-family: Arial, Helvetica, sans-serif;
-        color: darkslategrey;
-        font-size: medium;
-    }
-    body{
-        background-color: rgba(239, 245, 245, 0.8);
-    }
-    div#Barras{
-    display: block;
-    position: absolute;
-    width: 50px;
-    top: 20%;
-    left: 25%;
-}
-    .barra{
-        display: block;
-        position: absolute;
-        left: 60px;
-        box-shadow: 2px 2px 2px rgba(0,0,0,.6);
-        width: 0px;
-        height: 20px;
-    }
-    .barra:hover{
-        opacity: 0.5;
-    }
+<title>Jogo 5ª DIMENSÃO</title>
+<script src="scripts/scripts.js"></script>
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/grid.css">
+<script src="https://kit.fontawesome.com/e793b0296b.js" crossorigin="anonymous"></script>
 
-    img#personagem{
-        display: block;
-        position: absolute;
-       left: 20%;
-       top: 60%;
-       height: 40%;
-       width: 15%;
-          
-    }
-    img#barra:hover{
-        opacity: 0.8;
-    }
-   
-   div#botao_mais{
-    display: block;
-    position: absolute;
-    top: 20%;
-    left: 20%;
-   }
-   div#botao_menos{
-    display: block;
-    position: absolute;
-    top: 25%;
-    left: 20%;
-   }
-   .text-box {
-    margin-left: 50%;
-	 margin-top: 15%;
-}
-.text-box2 {
-    margin-left: 50%;
-	 margin-top: 20%;
-}
-div#pontuacao{
-    display: block;
-    position: absolute;
-    top: 20%;
-    left: 71%;
-}
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    display: inline-block;
-    border-radius: 100px;
-    transition: all .2s;
-    position: absolute;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-white {
-    background-color: rgb(100, 100, 100);
-    color: rgb(255, 255, 255);
-}
-
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
-}
-
-.btn-white::after {
-    background-color: rgb(32, 3, 3);
-}
-
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-div#selecao_elemento img{
-    box-shadow: 2px 2px 2px rgba(0,0,0,.6);
-    
-}
-div#selecao_elemento img:hover{
-    box-shadow: 4px 4px 4px rgba(0,0,0,.6);
-    /*opacity: 0.5;*/
-    
-}
-.seletor:active{
-    width: 30px;
-    height: 30px;
-}
-.seletor{
-    width: 20px;
-    height: 20px;
-}
-
-</style>
-
-<title>JOGO DA NESSA</title>
 </head>
 
 <body>
-    <h1>5ª DIMENSÃO</h1>
+    <div class="container">
+    
+   <header>
+        <h2>5ª DIMENSÃO</h2>
+        <a href="#"><img src="icons/dice-solid.svg" alt="dados" class="icons" onclick="dado(0, 2)"></a>
+    </header>
+    <div name="cad">
+        <select title="selecione_equipe">
+
+        </select>
+    </div>        
+    <div id="botao_iniciar" class="text-box">
+        <a href="#" class="btn btn-white btn-animate">INICIAR</a>        
+    </div>
     <div id="selecao_elemento">
         <h2>Selecione um elemento</h2>
         <h2>Vida</h2>
@@ -163,148 +36,23 @@ div#selecao_elemento img:hover{
         <h2>Ar</h2>
         <a href="#"><img src="images/barra verde.png" id="barra_verde" class="seletor" onclick="muda_elemento('ar', 'barra_verde')"/>     </a>
     </div>
-    <div id="Barras">
+    <div id="barras_hp" class="barras_hp">
     <p><img src="images/barra vermelha.png" id="barra_vida" class="barra"/><h2>Vida</h2></p>
     <p><img src="images/barra marrom.png" id="barra_terra" class="barra"/><h2>Terra</h2></p>
     <p><img src="images/barra azul.png" id="barra_agua" class="barra"/><h2>Agua</h2></p>
     <p><img src="images/barra verde.png" id="barra_ar" class="barra"/><h2>Ar</h2></p>
     </div>
+    <div id="yby" class="personagem">
     <img id="personagem" src="images/personagem/default.gif"/>
-    <div class="text-box" id="botao_mais">
-        <a href="#" class="btn btn-white btn-animate" onclick="barra_mais(elemento)">+</a>
-        
     </div>
-    <div class="text-box2" id="botao_menos">
-    <a href="#" class="btn btn-white btn-animate" onclick="barra_menos(elemento)">-</a>
-    </div>
- <div id="pontuacao">
-    <h2 id="vida">0</h2>
-    <h2 id="terra">0</h2>
-    <h2 id="agua">0</h2>
-    <h2 id="ar">0</h2>
+    
+ <div id="pontuacao" class="pontuacao">
+    <h2 id="vida"></h2>
+    <h2 id="terra"></h2>
+    <h2 id="agua"></h2>
+    <h2 id="ar"></h2>
  </div>
 
-    <script>
-    var pt_vd=0;
-    var pt_tr=0;
-    var pt_ag=0;
-    var pt_ar=0;
-    vida = document.getElementById("vida");
-    terra = document.getElementById("terra");
-    agua = document.getElementById("agua");
-    ar = document.getElementById("ar");
-    //alert(vida);
-    
-        var elemento = "";
-        function muda_elemento(e, b)
-        {
-            sel = document.getElementsByClassName("seletor");
-            //alert(sel);
-           for (i=0; i<4; i++){
-                //alert("mudando as dimensões");
-                sel[i].style.width = "20px";
-                sel[i].style.height = "20px";
-            }
-            elemento=e;
-            barra=document.getElementById(b);
-            barra.style.width = "35px";
-            barra.style.height = "35px";
-            //alert (elemento);
-            return e;
-        }
-        
-        
-        function barra_mais(elem)
-        {
-            //alert(elem);
-           
-            //alert(nova_barra);
-            switch (elem){
-            case 'terra':
-                document.getElementById("personagem").src="images/personagem/dance_1.gif"
-                if (pt_tr<100){
-            pt_tr=pt_tr+10;}
-            terra.innerHTML = pt_tr;
-            break;
-            case 'vida':
-            document.getElementById("personagem").src="images/personagem/trofeu.gif"
-            if (pt_vd<100){
-            pt_vd=pt_vd+10;}
-            vida.innerHTML = pt_vd;
-                break;
-                case 'agua':
-            document.getElementById("personagem").src="images/personagem/agua.png"
-            if (pt_ag<100){
-            pt_ag=pt_ag+10;}
-            agua.innerHTML = pt_ag;
-            break;
-            case 'ar':
-            document.getElementById("personagem").src="images/personagem/vegetal.png"
-            if (pt_ar<100){
-            pt_ar=pt_ar+10;}
-            ar.innerHTML = pt_ar;         
-            break;
-            }
-            nova_barra="barra_"+elem;
-            //alert (nova_barra);
-            var barra_new = document.getElementById(nova_barra);
-            
-            //alert(barra_new);
-            tam = barra_new.offsetWidth;
-            if (tam <500){
-            tam = Number(tam)+50;
-            barra_new.style.width = tam+"px";
-            //alert(tam);
-            }
-            
-            
-        }
-        function barra_menos(elem)
-        {
-            //alert(elem);
-           
-            //alert(nova_barra);
-            switch (elem){
-            case 'terra':
-                document.getElementById("personagem").src="images/personagem/angry_1.gif"
-                if (pt_tr>0){
-            pt_tr=pt_tr-10;}
-            terra.innerHTML = pt_tr;
-            break;
-            case 'vida':
-            document.getElementById("personagem").src="images/personagem/angry_2.gif"
-            //alert(vida.innerText);
-            if (pt_vd>0){
-            pt_vd=pt_vd-10;}
-            vida.innerHTML = pt_vd;
-                break;
-                case 'agua':
-            document.getElementById("personagem").src="images/personagem/sad.gif"
-            if (pt_ag>0){
-            pt_ag=pt_ag-10;}
-            agua.innerHTML = pt_ag;
-            break;
-            case 'ar':
-            document.getElementById("personagem").src="images/personagem/sleepy.gif"
-            if (pt_ar>0){
-            pt_ar=pt_ar-10;}
-            ar.innerHTML = pt_ar;         
-            break;
-            }
-            nova_barra="barra_"+elem;
-            //alert (nova_barra);
-            var barra_new = document.getElementById(nova_barra);
-            
-            //alert(barra_new);
-            tam = barra_new.offsetWidth;
-            if (tam >0){
-            tam = Number(tam)-50;
-            barra_new.style.width = tam+"px";
-            //alert(tam);
-            }
-            
-            
-        }
-    </script>
+</div>    
 </body>
 </html>
