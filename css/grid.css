@@ -1,7 +1,3 @@
-.container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
 header{
     height: 10vh;
     grid-column-start: 1;
