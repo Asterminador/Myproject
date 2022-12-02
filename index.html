@@ -11,48 +11,114 @@
 </head>
 
 <body>
-    <div class="container">
+    
     
    <header>
-        <h2>5ª DIMENSÃO</h2>
-        <a href="#"><img src="icons/dice-solid.svg" alt="dados" class="icons" onclick="dado(0, 2)"></a>
+    <nav>
+        <h2 id="numero_de_grupos">Numero de grupos: </h2>
+        <a href="#"><h2>5ª DIMENSÃO</h2></a>
+        <a href="#" id="btn_dado" ><img src="icons/dice-solid.svg" alt="dados" class="icons"></a>
+        <a href="#" onclick="barras_hp()"><svg xmlns="http://www.w3.org/2000/svg" class="icons" alt="HP" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg></a>
+        <a href="#" onclick="instrucoes()"><i class="fa-solid fa-info icons" style="color: black;"></i></a>
+    </nav>
     </header>
-    <div name="cad" class="cad">
-        <select title="selecione_equipe">
-
-        </select>
-    </div>        
-    <div id="botao_iniciar" class="text-box">
-        <a href="#" class="btn btn-white btn-animate">INICIAR</a>        
+    <div class="corpo">
+    <div name="cad" class="cad" id="cad">
+        <label for="numero_jogadores">Número de grupos</label>
+        <br><br>
+        <select name="numero_jogadores" id="numero_jogadores">
+            <option value="">Selecione o numero de grupos</option>
+            <option value="4">4 grupos</option>
+            <option value="8">8 grupos</option>
+        </select><br><br>
+        <a href="#" id="jg_num" onclick="jg_num()" class="btn btn-white btn-animate" >Começar</a>
+        
+        <br><br><br><br>
+        <h3>Escolha o numero de grupo (minimo 4 e maximo 8) e depois clique em começar</h3>
+    </div>  
+    <div id="descricao" class="descricao">
+        <h2>Este é o 5ª Dimensão!!! Um jogo divertido que vai te ensinar sobre geografia, 
+            e sobre a sua relação com o espaço.</h2><a onclick="showModal()" href="#"><h4>mais</h4></a>
     </div>
-    <div id="selecao_elemento">
-        <h2>Selecione um elemento</h2>
-        <h2>Vida</h2>
-        <a href="#"><img src="images/barra vermelha.png" id="barra_vermelha" class="seletor" onclick="muda_elemento('vida', 'barra_vermelha')" /></a>
-        <h2>Terra</h2>
-        <a href="#"><img src="images/barra marrom.png" id="barra_marrom" class="seletor" onclick="muda_elemento('terra', 'barra_marrom')"/> </a>
-        <h2>Agua</h2>
-        <a href="#"><img src="images/barra azul.png" id="barra_azul" class="seletor" onclick="muda_elemento('agua', 'barra_azul')"/> </a>
-        <h2>Ar</h2>
-        <a href="#"><img src="images/barra verde.png" id="barra_verde" class="seletor" onclick="muda_elemento('ar', 'barra_verde')"/>     </a>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span onclick="hideModal()">&times;</span>
+        <iframe width="700vh" height="500vh" src="apresentacao.html"></iframe></div>      
+    </div>
+    <div id="botao_iniciar" class="text-box botao_iniciar">
+        
+        <a href="#" class="btn btn-white btn-animate" onclick="iniciar()">INICIAR</a> 
+        <div id="txt_iniciar">Clique no botão acima para começar</div>
     </div>
     <div id="barras_hp" class="barras_hp">
-    <p><img src="images/barra vermelha.png" id="barra_vida" class="barra"/><h2>Vida</h2></p>
-    <p><img src="images/barra marrom.png" id="barra_terra" class="barra"/><h2>Terra</h2></p>
-    <p><img src="images/barra azul.png" id="barra_agua" class="barra"/><h2>Agua</h2></p>
-    <p><img src="images/barra verde.png" id="barra_ar" class="barra"/><h2>Ar</h2></p>
-    </div>
-    <div id="yby" class="personagem">
-    <img id="personagem" src="images/personagem/default.gif"/>
+        <h3 id="pt_vida">Vida</h3><img src="images/barra vermelha.png" id="barra_vida" class="barra"/><span class="score" id="ptuacao_vida">25</span>
+        <h3 id="pt_terra">Terra</h3><img src="images/barra marrom.png" id="barra_terra" class="barra"/><span class="score" id="ptuacao_terra">25</span>
+        <h3 id="pt_agua">Agua</h3><img src="images/barra azul.png" id="barra_agua" class="barra"/><span class="score" id="ptuacao_agua">25</span>
+        <h3 id="pt_ar">Ar</h3><img src="images/barra verde.png" id="barra_ar" class="barra"/><span class="score" id="ptuacao_ar">25</span>
+       <!-- <button onclick="aumentar()">Teste</button> -->
+        </div>
+    
+    <div id="dado" class="modal">
+        <div class="modal-content">
+            <img id="img_dado" src="images/dado/N_peão_de_3_lados.gif" alt="dados" class="dado">
+        </div></div>
+        
+        <div class="modal slider" id="instrucoes" >    
+        <div class="modal_content slides" id="txt_instrucoes">
+            <span onclick="hide_instrucoes()">&times;</span>
+            <!--Radio buttons
+            <input type="radio" name="radio_btn" id="radio1">
+            <input type="radio" name="radio_btn" id="radio2">
+            <input type="radio" name="radio_btn" id="radio3">
+            <input type="radio" name="radio_btn" id="radio4">
+            Fim radio buttons-->
+            <!--Slides -->
+            <div class="slide first">
+                <h3>O jogo comeca pelo elemento vida, depois vai para o elemento terra, elemento agua e finalmente o elemento ar. 
+                    O grupo que responde é o grupo do elemento ativo. O grupo pode rolar os dados para definir as suas ações.</h3>
+            </div>
+            <div class="slide"><h3>Caso o dado sorteie o numero 1 o grupo deve apontar um dano referente ao seu elemento que esta 
+                afetando negativamente o ambiente da Yby</h3></div>
+            <div class="slide"><h3>Caso o dado sorteie o numero 2 o grupo deve apontar um dano futuro 
+                (previsto baseando-se no estudo)</h3></div>
+            <div class="slide"><h3>Caso o dado sorteie o numero 3 o grupo pode contra atacar o vilão. 
+                Em posse da arma secreta, ao oferecer uma solução 
+                pra alguns dos problemas ja listados anteriormente(o dado nunca começa no 3) o grupo atinge o vilão bem no coração, 
+                ganhando uma pontuação especial para Yby</h3></div>
+                <!--Fim Slides -->
+                <!--Navigation auto-->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+        </div>
+    <div class="manual-navigation">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+
     </div>
     
- <div id="pontuacao" class="pontuacao">
-    <h2 id="vida"></h2>
-    <h2 id="terra"></h2>
-    <h2 id="agua"></h2>
-    <h2 id="ar"></h2>
- </div>
+</div>
+    <div id="grupo_ativo" class="grupo">
+        <h2>Grupo que responde: </h2><h2 id="grupo"></h2>
+        <img id="br_grupo" src="" alt="">
+        <br><br>
+        <a href="#" id="thumb_up"><i class="fa-solid fa-thumbs-up icons" style="color: rgb(13, 0, 255);"></i></a>
+        <a href="#" id="thumb_down"><i class="fa-solid fa-thumbs-down icons" style="color: rgb(255, 0, 0);"></i></a>
+    </div>
+    
+    
 
-</div>    
+    <div id="yby" class="personagem">
+    <img id="personagem" src="media/Ola.gif"/>
+    <textarea>Olá, eu sou a Yby e preciso da ajuda de vocês. Para começar clique no botão "Vamos começar"</textarea>
+    </div>
+    
+</div>
+
 </body>
 </html>

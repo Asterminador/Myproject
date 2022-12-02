@@ -1,74 +1,259 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
 header{
-    background: cadetblue;
+    height: 10vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+header nav{
+    display: flex;
+    flex-direction: row;
+    top: 0px;
+    left: 20%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: darkgray border-box 1px;
+}
+#numero_de_grupos{
+    display: block;
+    position: fixed;
+    left: 5%;
+}
+header a{
+    text-decoration: none;
+    position: relative;
+    display: inline-flex;
+    padding: 15px;
+}
+.corpo{
+    display: flex;
+    flex-direction: row;
+
+    /*position: relative;*/
+    margin-top: 15vh;
+    top: 12vh;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    position: fixed;
+    padding: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out ;
+}
+.modal_content{
+    background-color: white;
+    padding: 16px 24px;
+    width: 400px;
+    border-radius: 0.5rem;
+}
+span{
+    float: right;
+    width: 24px;
+    cursor: pointer;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 24px;
+
+}
+span:hover{
+    background-color: darkgray;
+}
+.show-modal{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+}
+#txt_iniciar{
+    font-size: 16;
+    color: darkslategray;
+    margin-top: 50px;
 }
 
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
+.descricao{
+    text-align: center;
+    display: block;
+    position: fixed;
+    margin-top: 20%;
+    width: 50%;
+}
+.descricao:hover{
+    
+    text-shadow: rgb(245, 164, 164) 2px 2px 2px;
+}
+.hide-descricao{
+    visibility: hidden;
+    
+}
+/*#instrucoes{
+    display: block;
+}*/
+/*select do numero de grupos*/
+.cad {
+    display: none;
+    position: fixed;
+    margin-top: 45%;
+    width: 450px;
+    /* Tamanho final do select */
+    overflow: hidden;
+    /* Esconde o conteúdo que passar do tamanho especificado */
+}
+.cad label{
+    
+    text-align: center;
+    font-size: medium;
+}
+.cad select{
+    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif) no-repeat #354880;
+    /* Imagem de fundo (Seta) */
+    background-position: 205px center;
+    /*Posição da imagem do background*/
+    width: 450px;
+    /* Tamanho do select, maior que o tamanho da div "div-select" */
+    height: 56px;
+    /* altura do select, importante para que tenha a mesma altura em todo os navegadores */
+    
+    /* Fonte do Select */
+    font-size: 18px;
+    /* Tamanho da Fonte */
+    padding: 13px 20px 13px 12px;
+    /* Configurações de padding para posicionar o texto no campo */
+    color: #fff;
+    /* Cor da Fonte */
+    text-indent: 0.01px;
+    /* Remove seta padrão do FireFox */
+    text-overflow: "";
+}
+
+/* Remove seta padrão do FireFox */
+.cad select::-ms-expand {
+    display: none;
+}
+#jg_num{
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    
+
+}
+/* Remove seta padrão do IE*/
+h1{
+    
     text-align: center;
     color: darkred;
     text-shadow: 1px 1px 1px rgba(0,0,0,.6);
 }
 h2{
-    font-family: Arial, Helvetica, sans-serif;
+    
     color: darkslategrey;
-
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(143, 143, 143, 0.6);
 }
 h3{
-    font-family: Arial, Helvetica, sans-serif;
+    
     color: darkslategrey;
     font-size: medium;
 }
 body{
     background-color: rgba(239, 245, 245, 0.8);
 }
-
-div#Barras{
-display: block;
-position: absolute;
-width: 50px;
-top: 20%;
-left: 25%;
+.barras_hp{
+    position: fixed;
+    
+    background-color: rgba(87, 36, 36, 0.336);
+    width:250px;
+    height: 300px;
+    left: 65%;
+    top: 20%
 }
 .barra{
-    display: block;
-    position: absolute;
-    left: 60px;
+    border: black 1px;
     box-shadow: 2px 2px 2px rgba(0,0,0,.6);
-    width: 0px;
-    height: 20px;
+    width: 230px;
+    height: 10px;
+    left: 10px;
+    position: relative;
 }
 .barra:hover{
     opacity: 0.5;
 }
-
-img#personagem{
+.score{
     display: block;
-    position: absolute;
-   left: 20%;
-   top: 60%;
-   height: 40%;
-   width: 15%;
-      
+    position: relative;
 }
-img#barra:hover{
-    opacity: 0.8;
+.dado{
+    display: block;
+    position: fixed;;
+    height: 200px;
+    width: 400px;
+    left: 40%;
+    
+}
+.grupo{
+    display: none;
+    justify-content: left;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+}
+#br_grupo{
+    width: 30px;
+    height: 30px;
+    border: black 1px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,.6);
+}
+#br_grupo:hover{
+    opacity: 0.5;
+}
+#parte_1, #parte_2, #parte_3, #parte_4{
+    display: none;
+} 
+#yby{
+    position: fixed;
+    left: 10%;
+    width: 400px;
+    
+    top: 25%;
 }
 
-div#botao_iniciar{
+.botao_iniciar{
+display: block;
+position: fixed;
+top: 70%;
 
-top: 20%;
-left: 20%;
 }
-.text-box {
+.hide-botao_iniciar{
+    display: none;
+    
+}
+/*.text-box {
 margin-left: 50%;
- margin-top: 15%;
-}
+margin-top: 15%;
+}*/
 
-div#pontuacao{
+/*div#pontuacao{
 display: block;
 position: absolute;
 top: 20%;
 left: 71%;
+}*/
+.btn{
+    margin-left: 25%;
 }
 .btn:link,
 .btn:visited {
@@ -118,15 +303,15 @@ transform: scaleX(1.4) scaleY(1.6);
 opacity: 0;
 }
 
-div#selecao_elemento img{
+/*div#selecao_elemento img{
 box-shadow: 2px 2px 2px rgba(0,0,0,.6);
 
 }
 div#selecao_elemento img:hover{
 box-shadow: 4px 4px 4px rgba(0,0,0,.6);
-/*opacity: 0.5;*/
+/*opacity: 0.5;
 
-}
+}*/
 .seletor:active{
 width: 30px;
 height: 30px;
@@ -139,6 +324,6 @@ height: 20px;
 height: 40px;
 width: 40px;
 }
-.cad, .barras_hp, .pontuacao, div#selecao_elemento{    
+.personagem, .barras_hp, .pontuacao, div#selecao_elemento{    
 display: none;
 }

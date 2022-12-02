@@ -1,9 +1,0 @@
-header{
-    height: 10vh;
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
-.container{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-}
